@@ -16,13 +16,16 @@ function App() {
     return selectPosts(postsBySubreddit, selectedSubreddit);
   })
 
+  const changeResoure = src =>
+    dispatch(selectSubreddit(src));
+
   return (
     <div className="App">
       <div>
-        <button onClick={() => dispatch(selectSubreddit('reactJS'))}>reactJs</button>
-        <button onClick={() => dispatch(selectSubreddit('javascript'))}>javascript</button>
-        <button onClick={() => dispatch(selectSubreddit('webdev'))}>webdev</button>
-        <button onClick={() => dispatch(selectSubreddit('web'))}>web</button>
+        <button onClick={() => changeResoure('reactJS')}>reactJs</button>
+        <button onClick={() => changeResoure('javascript')}>javascript</button>
+        <button onClick={() => changeResoure('webdev')}>webdev</button>
+        <button onClick={() => changeResoure('web')}>web</button>
       </div>
       <p>{subreddit}</p>
       {posts.length > 0 && (
